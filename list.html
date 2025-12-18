@@ -1,1 +1,28 @@
-<a href="https://raw.githubusercontent.com/ppleasant6255/skills-github-pages/main/docs/plan/Evidence__EvidenceModel.md"></a>
+---
+layout: page
+title: Markdown Files
+permalink: /list.html
+---
+
+<h1>Markdown Files</h1>
+<p>Download any of the repository markdown documents from the list below.</p>
+
+{% assign markdown_static = site.static_files | where: "extname", ".md" %}
+{% assign markdown_pages = site.pages | where_exp: "p", "p.path contains '.md'" %}
+{% assign markdown_files = markdown_static | concat: markdown_pages %}
+{% assign sorted_files = markdown_files | sort: "path" %}
+
+{% if sorted_files.size > 0 %}
+<ul>
+  {% for file in sorted_files %}
+    {% if site.github.repository_url and site.github.build_revision %}
+      {% assign download_url = site.github.repository_url | replace: 'github.com', 'raw.githubusercontent.com' | append: '/' | append: site.github.build_revision | append: '/' | append: file.path %}
+    {% else %}
+      {% assign download_url = file.path | relative_url %}
+    {% endif %}
+    <li><a href="{{ download_url }}" download>{{ file.path }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No markdown files found.</p>
+{% endif %}
