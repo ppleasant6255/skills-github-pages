@@ -7,22 +7,50 @@ permalink: /list.html
 <h1>Markdown Files</h1>
 <p>Download any of the repository markdown documents from the list below.</p>
 
-{% assign markdown_static = site.static_files | where: "extname", ".md" %}
-{% assign markdown_pages = site.pages | where_exp: "p", "p.path contains '.md'" %}
-{% assign markdown_files = markdown_static | concat: markdown_pages %}
-{% assign sorted_files = markdown_files | sort: "path" %}
-
-{% if sorted_files.size > 0 %}
 <ul>
-  {% for file in sorted_files %}
-    {% if site.github.repository_url and site.github.build_revision %}
-      {% assign download_url = site.github.repository_url | append: '/blob/' | append: site.github.build_revision | append: '/' | append: file.path | append: '?raw=1' %}
-    {% else %}
-      {% assign download_url = file.path | relative_url %}
-    {% endif %}
-    <li><a href="{{ download_url }}" download>{{ file.path }}</a><br></li>
-  {% endfor %}
+  <li><a href=".github/steps/0-welcome.md" download>.github/steps/0-welcome.md</a></li>
+  <li><a href=".github/steps/1-enable-github-pages.md" download>.github/steps/1-enable-github-pages.md</a></li>
+  <li><a href=".github/steps/2-configure-your-site.md" download>.github/steps/2-configure-your-site.md</a></li>
+  <li><a href=".github/steps/3-customize-your-homepage.md" download>.github/steps/3-customize-your-homepage.md</a></li>
+  <li><a href=".github/steps/4-create-a-blog-post.md" download>.github/steps/4-create-a-blog-post.md</a></li>
+  <li><a href=".github/steps/5-merge-your-pull-request.md" download>.github/steps/5-merge-your-pull-request.md</a></li>
+  <li><a href=".github/steps/X-finish.md" download>.github/steps/X-finish.md</a></li>
+  <li><a href="Architecture__AuditLogging.md" download>Architecture__AuditLogging.md</a></li>
+  <li><a href="Architecture__BusinessUnits.md" download>Architecture__BusinessUnits.md</a></li>
+  <li><a href="Architecture__ModulesAndFeatureFlags.md" download>Architecture__ModulesAndFeatureFlags.md</a></li>
+  <li><a href="Architecture__Tenancy.md" download>Architecture__Tenancy.md</a></li>
+  <li><a href="Entities__Case.md" download>Entities__Case.md</a></li>
+  <li><a href="Entities__Incident.md" download>Entities__Incident.md</a></li>
+  <li><a href="Evidence__AccessRules.md" download>Evidence__AccessRules.md</a></li>
+  <li><a href="Evidence__ChainOfCustody.md" download>Evidence__ChainOfCustody.md</a></li>
+  <li><a href="Evidence__EvidenceModel.md" download>Evidence__EvidenceModel.md</a></li>
+  <li><a href="Evidence__TransfersAndSignatures.md" download>Evidence__TransfersAndSignatures.md</a></li>
+  <li><a href="Future__V2_Deferred_Backlog.md" download>Future__V2_Deferred_Backlog.md</a></li>
+  <li><a href="index.md" download>index.md</a></li>
+  <li><a href="Meta__DECISIONS.md" download>Meta__DECISIONS.md</a></li>
+  <li><a href="Meta__Execution_Order_and_Dependency_Graph.md" download>Meta__Execution_Order_and_Dependency_Graph.md</a></li>
+  <li><a href="Meta__Global_Naming_and_Terminology.md" download>Meta__Global_Naming_and_Terminology.md</a></li>
+  <li><a href="Meta__Pro_Execution_Contract.md" download>Meta__Pro_Execution_Contract.md</a></li>
+  <li><a href="Meta__System_Boundaries_and_NonGoals.md" download>Meta__System_Boundaries_and_NonGoals.md</a></li>
+  <li><a href="Meta__Validation_and_Acceptance_Criteria.md" download>Meta__Validation_and_Acceptance_Criteria.md</a></li>
+  <li><a href="Notifications__Channels.md" download>Notifications__Channels.md</a></li>
+  <li><a href="Notifications__NotificationEntities.md" download>Notifications__NotificationEntities.md</a></li>
+  <li><a href="Notifications__Subscriptions.md" download>Notifications__Subscriptions.md</a></li>
+  <li><a href="Notifications__Throttling.md" download>Notifications__Throttling.md</a></li>
+  <li><a href="Obscura__ChatOverlay_Boundaries.md" download>Obscura__ChatOverlay_Boundaries.md</a></li>
+  <li><a href="Obscura__ChatOverlay_DataAccess.md" download>Obscura__ChatOverlay_DataAccess.md</a></li>
+  <li><a href="Obscura__ChatOverlay_Overview.md" download>Obscura__ChatOverlay_Overview.md</a></li>
+  <li><a href="Obscura__ChatOverlay_UX.md" download>Obscura__ChatOverlay_UX.md</a></li>
+  <li><a href="README.md" download>README.md</a></li>
+  <li><a href="UXPages__CaseDetail.md" download>UXPages__CaseDetail.md</a></li>
+  <li><a href="UXPages__CaseList.md" download>UXPages__CaseList.md</a></li>
+  <li><a href="UXPages__EvidenceDetail.md" download>UXPages__EvidenceDetail.md</a></li>
+  <li><a href="UXPages__EvidenceList.md" download>UXPages__EvidenceList.md</a></li>
+  <li><a href="UXPages__IncidentDetail.md" download>UXPages__IncidentDetail.md</a></li>
+  <li><a href="UXPages__IncidentList.md" download>UXPages__IncidentList.md</a></li>
+  <li><a href="UX__AuditSummaryPresentation.md" download>UX__AuditSummaryPresentation.md</a></li>
+  <li><a href="UX__PermissionFeedback.md" download>UX__PermissionFeedback.md</a></li>
+  <li><a href="UX__SoftDeleteVisibility.md" download>UX__SoftDeleteVisibility.md</a></li>
+  <li><a href="UX__StatusKeysAndLookups.md" download>UX__StatusKeysAndLookups.md</a></li>
+  <li><a href="UX__UX_OrderAndPrinciples.md" download>UX__UX_OrderAndPrinciples.md</a></li>
 </ul>
-{% else %}
-<p>No markdown files found.</p> 
-{% endif %}
