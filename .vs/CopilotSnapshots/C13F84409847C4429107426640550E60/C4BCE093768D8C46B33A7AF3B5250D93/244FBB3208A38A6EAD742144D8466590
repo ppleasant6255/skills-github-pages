@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: Markdown Files
 permalink: /list.html
@@ -16,11 +16,11 @@ permalink: /list.html
 <ul>
   {% for file in sorted_files %}
     {% if site.github.repository_url and site.github.build_revision %}
-      {% assign download_url = site.github.repository_url | append: '/blob/' | append: site.github.build_revision | append: '/' | append: file.path | append: '?raw=1' %}
+      {% assign download_url = site.github.repository_url | replace: 'github.com', 'raw.githubusercontent.com' | append: '/' | append: site.github.build_revision | append: '/' | append: file.path %}
     {% else %}
       {% assign download_url = file.path | relative_url %}
     {% endif %}
-    <li><a href="{{ download_url }}" download>{{ file.path }}</a><br></li>
+    <li><a href="{{ download_url }}" download>{{ file.path }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
